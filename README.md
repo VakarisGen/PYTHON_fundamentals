@@ -117,6 +117,8 @@ print(f"Single candle price {finalprice} eur")
 result = candle * finalprice
 print(f"Total price {result}")
 ```
+
+___
 ## Exploring `STRINGS`
 
 - Assigning actor names to `variables` as a `string`. Printing the shorter `string`
@@ -178,7 +180,22 @@ else:
     print("No")
 ```
 
-## Exploring `LISTS` and `ARRAYS`
+___
+## Exploring `FOR` Loops, `LISTS` and `ARRAYS`
 
+- Simple `FOR` loop printing same `STR` defined amount of times. Listing numbers from 0 to 10 (with `list` and without)
+- 
+```PYTHON
+word = 'Hello'
+for i in range(10):
+    print(word)
+
+lst = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for i in lst:
+    print(i)
+
+for i in range(0, 11):
+    print(i)
+```
 
 > WORK IN PROGRESS...
