@@ -184,7 +184,7 @@ ___
 ## Exploring `FOR` Loops, `LISTS` and `ARRAYS`
 
 - Simple `FOR` loop printing same `STR` defined amount of times. Listing numbers from 0 to 10 (with `list` and without)
-- 
+
 ```PYTHON
 word = 'Hello'
 for i in range(10):
