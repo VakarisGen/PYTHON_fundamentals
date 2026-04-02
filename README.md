@@ -9,7 +9,7 @@ _________
 
 ## Exploring `VARIABLES` and `IF` statements
 
-- Saving name, last name, Date of Birth as well as current year as `variable`. Writing a short code that can `print` name and surname, calculate current age based on input.
+- Saving name, last name, Date of Birth as well as current year as `VAR`. Writing a short code that can `PRINT` name and surname, calculate current age based on input.
 
 ```Python
 name = "Vakaris"
@@ -19,7 +19,7 @@ currdate = 2026
 
 print(f"My name is {name} {surname}. I'm {currdate - dob} years old")
 ```  
-- Creating two `variables` with random values from 0 to 4, dividing the larger by the smaller and print the result rounded to 2 decimal places.
+- Creating two `VAR` with random values from 0 to 4, dividing the larger by the smaller and print the result rounded to 2 decimal places.
 
 ```Python
 import random
@@ -34,7 +34,7 @@ if minnum == 0:
 else:
     print(round(maxnum / minnum, 2))
 ```
-- Creating 3 `variables` with random values from 0 to 25. Finding and printing smallest, biggest and middle value number.
+- Creating 3 `VAR` with random values from 0 to 25. Finding and printing smallest, biggest and middle value number.
 
 ```PYTHON
 import random
@@ -55,7 +55,7 @@ print(f"Lowest number is {minvar}")
 print(f"Biggest number is {maxvar}")
 ```
 
-- Creating 3 `variables` which are random values from 0 to 10. These `variables` are assigned as a triangle sides.
+- Creating 3 `VAR` which are random values from 0 to 10. These `VAR` are assigned as a triangle sides.
 Code below generates the numbers and checks if triangle is possible with generated values.
 
 ```PYTHON
@@ -71,8 +71,8 @@ if (a + b > c) and (b + c > a) and (c + a > b):
 else:
     print("Triangle is impossible")
 ```
-- Creating 4 `variables` and assigning random values from 0 to 2. Code below counts how many 0, 1s and 2s were generated.
-Although such result can be reached using an `array`, i decided to do it without it, visiting and analyzing `arrays` at a later date.
+- Creating 4 `VAR` and assigning random values from 0 to 2. Code below counts how many 0, 1s and 2s were generated.
+Although such result can be reached using an `ARRAY`, i decided to do it without it, visiting and analyzing `ARRAY` at a later date.
 
 ```PYTHON
 import random
@@ -121,7 +121,7 @@ print(f"Total price {result}")
 ___
 ## Exploring `STRINGS`
 
-- Assigning actor names to `variables` as a `string`. Printing the shorter `string`
+- Assigning actor names to `VAR` as a `STRING`. Printing the shorter `STRING`
 
 ```PYTHON
 name = "Viggo"
@@ -146,7 +146,7 @@ print(str.upper(name), str.lower(surname))
 print(f" Initials are {initial}")
 ```
 
-- Using the same assigned actor name/surname as `strings`, assigning a `variable` as a combination of last 3 letters for name and surname.
+- Using the same assigned actor name/surname as `STRING`, assigning a `VAR` as a combination of last 3 letters for name and surname.
 Printing the result.
 
 ```PYTHON
@@ -162,14 +162,14 @@ else:
     print(result)
 ```
 
-- Replacing defined symbols in a `string`, lowercase and uppercase combined.
+- Replacing defined symbols in a `STRING`, lowercase and uppercase combined.
 
 ```PYTHON
 str1 = "An American in Paris"
 print(str1.replace("A", "*").replace("a", "*"))
 ```
 
-- Assigning a `string` to a variable, checking if there is numbers in the `string`. Using `isdigit` for the easy solution.
+- Assigning a `STRING` to a variable, checking if there is numbers in the `STRING`. Using `ISDIGIT` for the easy solution.
 
 ```PYTHON
 text = "I'm 24 years old"
@@ -183,7 +183,7 @@ else:
 ___
 ## Exploring `FOR` Loops, `LISTS` and `ARRAYS`
 
-- Simple `FOR` loop printing same `STR` defined amount of times. Listing numbers from 0 to 10 (with `list` and without)
+- Simple `FOR` loop printing same `STR` defined amount of times. Listing numbers from 0 to 10 (with `LIST` and without)
 
 ```PYTHON
 word = 'Hello'
@@ -196,6 +196,109 @@ for i in lst:
 
 for i in range(0, 11):
     print(i)
+```
+
+- Printing even numbers in range from 10 to 50. Repeat but skip numbers divisible by 10 without a remainder. using `CONTINUE` where possible.
+
+```PYTHON
+for i in range(10,51):
+    if i % 2 == 0:
+        print(i)
+
+for i in range(10,51):
+    if i % 2 == 0 and i % 10 != 0:
+        print(i)
+
+for i in range(10,51):
+    if i % 10 == 0:
+        continue
+    if i % 2 == 0:
+        print(i)
+```
+
+- Counting certain cycle iterrations, ex. when `VAR` is an even number.
+
+```PYTHON
+count = 0
+for i in range(0, 21):
+    if i % 2 == 0:
+        count += 1
+print(count)
+```
+
+- Counting `ARRAY` elements based on the symbol lenght. One cycle for counting elements that are shorter than 5 symbols, another cycle for elements longer than 7 symbols. 
+
+```PYTHON
+forest = ['Birch', 'Evergreen', 'Oak', 'Spruce', 'Willow', 'Yew', 'Redwood','Hazelnut', 'Ebony', 'Ash', 'Chestnut', 'Maple', 'Cedar', 'Pine']
+
+count = 0
+for i in forest:
+    if len(i) < 5:
+        count += 1
+print(f'Shorter than 5 symbols = {count}')
+
+count = 0
+for i in forest:
+    if len(i) > 7:
+        count += 1
+print(f'Longer than 7 symbols = {count}')
+```
+
+- Using the same array from a previous exercise, counting elements that are longer than 5 but shorter than 10 symbols.
+
+```PYTHON
+count = 0
+for i in plants:
+    if len(i) > 5 and len(i) < 10:
+        count += 1
+print(f'Plants that are longer than 5, but shorter than 10 symbols = {count}')
+```
+
+- Creating and filling in an `ARRAY` with random numbers.
+
+```PYTHON
+import random
+
+arr1 = []
+for i in range(30):
+    i = random.randint(5, 25)
+    arr1.append(i)
+print(arr1)
+```
+
+- Counting previously filled `ARRAY` values that are larger than 10.
+
+```PYTHON
+count = 0
+for i in arr1:
+    if i > 10:
+        count += 1
+print(f'{count} values larger than 10')
+```
+
+- Looking for largest value. Counting a total sum of all `ARRAY` values.
+
+```PYTHON
+max_value = max(arr1)
+print(f'Largest value in array is: {max_value}')
+
+sumtotal = 0
+for i in arr1:
+    sumtotal += i
+print(f'Bendra visu skaiciu suma yra: {sumtotal}')
+```
+
+- Sorting the `ARRAY` values into even and uneven values.
+
+```PYTHON
+even_arr = []
+uneven_arr = []
+for i in arr2:
+    if i % 2 == 0:
+        even_arr.append(i)
+    else:
+        uneven_arr.append(i)
+print(f'Even values: {even_arr}, Uneven values: {uneven_arr}')
 ```
 
 > WORK IN PROGRESS...
