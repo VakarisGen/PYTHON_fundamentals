@@ -181,7 +181,7 @@ else:
 ```
 
 ___
-## Exploring `FOR` Loops, `LISTS` and `ARRAYS`
+## Exploring `FOR` and `WHILE` Loops, `LISTS` and `ARRAYS`
 
 - Simple `FOR` loop printing same `STR` defined amount of times. Listing numbers from 0 to 10 (with `LIST` and without)
 
@@ -300,5 +300,244 @@ for i in arr2:
         uneven_arr.append(i)
 print(f'Even values: {even_arr}, Uneven values: {uneven_arr}')
 ```
+- Generating a random `ARRAY` with letters assigned as values. Counting each letter.
 
+```PYTHON
+import random
+
+arr = []
+for i in range(200):
+     arr.append(random.randint(1, 4))
+
+for i in range(len(arr)):
+    if arr[i] == 1:
+        arr[i] = 'A'
+    elif arr[i] == 2:
+        arr[i] = 'B'
+    elif arr[i] == 3:
+        arr[i] = 'C'
+    elif arr[i] == 4:
+        arr[i] = 'D'
+# print(arr) #print for checking
+
+countA = 0
+countB = 0
+countC = 0
+countD = 0
+
+for i in arr:
+    if i == 'A':
+        countA += 1
+    elif i == 'B':
+        countB += 1
+    elif i == 'C':
+        countC += 1
+    elif i == 'D':
+        countD +=1
+
+print(f'A: {countA}, B: {countB}, C: {countC}, D: {countD}')
+```
+
+- Taking the code from the previous exercise and creating 3 `ARRAYS` on the same parameters. Merging them into 1 `ARRAY`, checking, separating and counting duplicate values. Of course my provided solution is not the most optimal, would be cleaner and easier to read using `FUNCTIONS` however as I'm currently exploring `ARRAYS`, leaning towards the more fundamentaly simple solution.
+
+```PYTHON
+import random
+
+arr1 = []
+for i in range(200):
+     arr1.append(random.randint(1, 4))
+
+for i in range(len(arr1)):
+    if arr1[i] == 1:
+        arr1[i] = 'A'
+    elif arr1[i] == 2:
+        arr1[i] = 'B'
+    elif arr1[i] == 3:
+        arr1[i] = 'C'
+    elif arr1[i] == 4:
+        arr1[i] = 'D'
+# print(f'First array: {arr1}')
+
+arr2 = []
+for i in range(200):
+     arr2.append(random.randint(1, 4))
+
+for i in range(len(arr2)):
+    if arr2[i] == 1:
+        arr2[i] = 'A'
+    elif arr2[i] == 2:
+        arr2[i] = 'B'
+    elif arr2[i] == 3:
+        arr2[i] = 'C'
+    elif arr2[i] == 4:
+        arr2[i] = 'D'
+# print(f' Second array: {arr2}')
+
+arr3 = []
+for i in range(200):
+     arr3.append(random.randint(1, 4))
+
+for i in range(len(arr3)):
+    if arr3[i] == 1:
+        arr3[i] = 'A'
+    elif arr3[i] == 2:
+        arr3[i] = 'B'
+    elif arr3[i] == 3:
+        arr3[i] = 'C'
+    elif arr3[i] == 4:
+        arr3[i] = 'D'
+# print(f' Third array: {arr3}')
+
+merged_array = []
+for i in range(200):
+    merged_array.append(arr1[i] + arr2[i] + arr3[i])
+    # print(merged_array, end= ' ')               #    print(arr1[i] + arr2[i] + arr3[i], end= ' ')
+print(merged_array)
+
+unique_array = []
+combcount = 0
+for combination in merged_array:
+    if combination not in unique_array:
+        combcount += 1
+        unique_array.append(combination)
+print(f'Unique combinations: {unique_array}, total number of unique combinations: {combcount}')
+``` 
+- Generating a 101 value length random `ARRAY`. Checking and replacing all duplicate values untill all the `ARRAY` values are unique.
+
+```PYTHON
+import random
+
+array1 = []
+count = 0
+
+while len(array1) < 101:
+    count += 1
+    i = random.randint(0, 300)
+    if i not in array1:
+        array1.append(i)
+
+# check if there are any dublicates
+array1.sort()
+print(array1)
+print(count)
+```
+___
+
+- Creating a simple Heads/Tails simulator. 3 instances are made that stops the game in 3 different scenarios:
+1. When heads are flipped: 
+```PYTHON
+import random
+
+Hcount = 0
+Scount = 0
+while True:
+    result = random.randint(0,1)
+    if result == 1:
+        Scount += 1
+    else:
+        Hcount += 1
+    print(f'Heads count: {Hcount}')
+    print(f'Tails count: {Scount}')
+    print('-----------')
+    if Hcount == 1:
+        break
+```
+2. When Heads are flipped 3 times:
+```PY
+import random
+
+Hcount = 0
+Tcount = 0
+while True:
+    result = random.randint(0,1)
+    if result == 1:
+        Tcount += 1
+    else:
+        Hcount += 1
+    print(f'Heads count: {Hcount}')
+    print(f'Tails count: {Tcount}')
+    print('-----------')
+    if Hcount == 3:
+        break
+```
+3. Heads are flipped 3 times in a row:
+```PY
+import random
+
+Hcount = 0
+Tcount = 0
+while True:
+    result = random.randint(0,1)
+    if result == 0:
+        Hcount += 1
+        print(f'Heads count: {Hcount}')
+        print(f'Tails count: {Tcount}')
+        print('-----------')
+    else:
+        Tcount += 1
+        print(f'Heads count: {Hcount}')
+        print(f'Tails count: {Tcount}, tails dropped, reseting')
+        print('-----------')
+        Hcount = 0
+        Tcount = 0
+
+    if Hcount == 3:
+        break
+```
+
+- Creating a simple nail hammering calculator. Each nail is 8.5cm in lenght.
+Hammering 5 nails with small hits, 1 small hit moves the nail 5-20mm in the plank.
+Hammering 5 nails with big hits, 1 big hit moves the nail 20-30mm in the plank.
+in addition, there is a 50% chance that the hammer swing misses. 
+Below code counts how many times would you need to swing the hammer in each scenario to drive the nail fully into the plank.
+
+```PY
+import random
+
+# smallhit = random.randint(5,20)
+# bighit = random.randint(20, 30)
+
+depth = 0
+hitcount = 0
+
+for nail_nr in range(5):
+    while depth < 850:
+        hitcount += 1
+        if random.randint(1, 100) <= 50:
+            depth += random.randint(5, 20)
+print(f'All 5 nails needed {hitcount} small hits')
+
+depth = 0
+hitcount = 0
+
+for nail_nr in range(5):
+    while depth < 850:
+        hitcount += 1
+        if random.randint(1, 100) <= 50: #taikom 50% tikimybe
+            depth += random.randint(20, 30)
+print(f'All 5 nails needed {hitcount} big hits')
+```
+___
+
+## Exploring `FUNCTIONS`
+
+- Creating a `FUNCTION` for `ARRAY` generation of defined length and defined random number value ranges.
+
+```PY
+import random
+
+def f_random_array_gen(a, b, c):
+    array_1 = []
+    for i in range(c):
+        rnd_num = random.randint(a, b)
+        array_1.append(rnd_num)
+    print(array_1)
+    return array_1
+```
+
+- 
+
+
+
+ 
 > WORK IN PROGRESS...
